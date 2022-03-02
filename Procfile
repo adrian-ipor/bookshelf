@@ -1,0 +1,1 @@
+web: gunicorn movierate.wsgi --log-file -

@@ -1,0 +1,20 @@
+{% extends 'main_template.html' %}
+{% load bootstrap %}
+{% block title %} book form {%  endblock %}
+
+{% block page %}
+
+<div class="card" style="width: 40rem;">
+    <div class="card-body">
+        <h5 class="card-title">edit book</h5>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|bootstrap }}
+            <button type="submit" class="btn btn-primary">submit</button>
+        </form>
+
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+</div>
+{%  endblock %}

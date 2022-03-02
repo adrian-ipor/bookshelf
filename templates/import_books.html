@@ -1,0 +1,22 @@
+{% extends 'main_template.html' %}
+
+{% block title %} import books {%  endblock %}
+
+{% block page %}
+    <h2>Wprowadź tytuł szukanej książki w google: </h2>
+    <form method="get">
+        <input type="text" name="phrase">
+        <button type="submit" class="btn btn-primary">submit</button>
+    <a href="{% url 'all_books' %}"><h3>back</h3></a>
+    </form>
+
+   {% for book in import_books_from_google %}
+          <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">tytuł: {{ book.title }}</h5>
+                    <p class="card-text">Autor: {{book.author}}</p>
+                </div>
+            </div>
+
+    {% endfor %}
+{%  endblock %}

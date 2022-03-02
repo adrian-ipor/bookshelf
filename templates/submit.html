@@ -1,0 +1,13 @@
+{% extends 'main_template.html' %}
+
+{% block title %} delete books {%  endblock %}
+
+{% block page %}
+
+   <h1>Czy napewno chcesz usunąć {{ book }}?</h1>
+          <form method="post">
+              {% csrf_token %}
+              <button type="submit">delete</button>
+          </form>
+          <a href="{% url 'all_books' %}"><h3>back</h3></a>
+{%  endblock %}

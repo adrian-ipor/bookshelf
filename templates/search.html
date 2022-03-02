@@ -1,0 +1,31 @@
+{% extends 'main_template.html' %}
+
+{% block title %} lista książek {%  endblock %}
+{% load bootstrap %}
+{% block page %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <form method="get">
+                {{ books_from_html.form|bootstrap}}
+                <input type="submit" />
+            </form>
+        </div>
+    </div>
+   {% for book in books_from_html.qs %}
+          <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                   <h5 class="card-title">Tytuł: {{ book.title }}</h5>
+                    <p class="card-text">Autor: {{book.author}}</p>
+                    <p class="card-text">Język: {{book.language}}</p>
+                    <p class="card-text">Data publikacji: {{book.public_date}}</p>
+                    <p class="card-text">Numer ISBN: {{book.isbn_number}}</p>
+                    <p class="card-text">Liczba stron: {{book.number_of_pages}}</p>
+                    <p class="card-text">Link do okładki: {{book.link_to_cover}}</p>
+                    <a href={% url 'edit_book' book.id %} class="card-link"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a href={% url 'delete_book' book.id %} class="card-link"><i class="fa-solid fa-trash-can"></i></a>
+                </div>
+            </div>
+
+    {% endfor %}
+
+{% endblock %}
