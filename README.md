@@ -6,7 +6,7 @@ Simple book management service using CRUD and supporting REST API written in dja
 Deployed:
 https://bookshelf-as.herokuapp.com/books/all/
 
-Demonstration how to works:
+Demonstration how it works:
 https://www.youtube.com/watch?v=FUcaGXJTn78
 
 edit/delete:
